@@ -1,0 +1,30 @@
+.א.1. יצירה ואכלוס של מסד נתונים:
+CREATE TABLE Televisions (
+    id_Television INTEGER PRIMARY KEY AUTOINCREMENT,
+    catalog_number  TEXT UNIQUE NOT NULL,
+    brand CHECK (brand IN ('Samsung', 'LG', 'Sony')) ,
+	screen_size INT CHECK (screen_size > 0),
+    resolution  CHECK (resolution IN ('4K', '8K', 'Full HD')),                     
+	price  REAL CHECK (price > 0),
+	stock_quantity INT CHECK (stock_quantity > 0), 
+	release_year INTEGER NOT NULL CHECK (release_year >= 2000),
+	smart_tv BOOLEAN NOT NULL,
+	Os DEFAULT NULL,
+	panel_type CHECK (panel_type IN ('OLED', 'QLED', 'LED'))
+);
+
+.1.כתוב 3 שאילתות של .ב INSERT להוספת טלויזיות:
+INSERT INTO televisions (id_Television, catalog_number, brand, model, screen_size, resolution, price, stock_quantity, release_year, smart_tv, os, panel_type) 
+VALUES 
+(1,'t1010', 'Samsung', 'Samsung AI', 100, 'Full HD', 6000.00, 35, 2024, TRUE, 'Samsung 500AI' , 'QLED');  
+INSERT INTO televisions (id_Television, catalog_number, brand, model, screen_size, resolution, price, stock_quantity, release_year, smart_tv, os, panel_type) 
+VALUES 
+(2,'t2020', 'LG', 'LG tmod', 60, '8K', 3500.00, 15, 2015, TRUE, 'LG 1313t', 'OLED'); 
+INSERT INTO televisions (id_Television, catalog_number, brand, model, screen_size, resolution, price, stock_quantity, release_year, smart_tv, os, panel_type) 
+VALUES 
+(3,'t3030', 'Sony', 'sony tgroup', 40, '4K', 2200.00, 4, 2000, FALSE, NULL ,'LED');  
+
+
+
+
+
